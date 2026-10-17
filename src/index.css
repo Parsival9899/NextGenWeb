@@ -8,6 +8,9 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #0a0a1a;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
@@ -16,19 +19,10 @@
   }
 }
 
-/* Dark mode (default) */
-.dark {
-  color-scheme: dark;
-}
-
-.dark ::selection {
-  background-color: rgba(168, 85, 247, 0.3);
-  color: white;
-}
-
-/* Light mode */
-.light {
-  color-scheme: light;
+/* ========== LIGHT MODE OVERRIDES ========== */
+.light body {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
 }
 
 .light ::selection {
@@ -36,6 +30,330 @@
   color: #1a1a1a;
 }
 
+/* Light mode - Main backgrounds */
+.light .bg-\[#0a0a1a\],
+.light .bg-\[#0d0d2b\],
+.light .bg-\[#050510\] {
+  background-color: #f8fafc !important;
+}
+
+.light .bg-gradient-to-b.from-\[#0a0a1a\] {
+  --tw-gradient-from: #f8fafc !important;
+}
+
+.light .bg-gradient-to-b.via-\[#0d0d2b\] {
+  --tw-gradient-via: #ffffff !important;
+}
+
+.light .bg-gradient-to-b.to-\[#0a0a1a\] {
+  --tw-gradient-to: #f8fafc !important;
+}
+
+.light .bg-gradient-to-b.from-\[#0d0d2b\] {
+  --tw-gradient-from: #f8fafc !important;
+}
+
+.light .bg-gradient-to-b.to-\[#0d0d2b\] {
+  --tw-gradient-to: #ffffff !important;
+}
+
+.light .bg-gradient-to-b.from-\[#0a0a1a\].via-\[#0d0d2b\].to-\[#0a0a1a\] {
+  background: linear-gradient(to bottom, #f8fafc, #ffffff, #f8fafc) !important;
+}
+
+.light .bg-gradient-to-b.from-\[#0d0d2b\].via-\[#0a0a1a\].to-\[#0d0d2b\] {
+  background: linear-gradient(to bottom, #f8fafc, #ffffff, #f8fafc) !important;
+}
+
+.light .bg-gradient-to-b.from-\[#0a0a1a\].to-\[#0d0d2b\] {
+  background: linear-gradient(to bottom, #f8fafc, #ffffff) !important;
+}
+
+.light .bg-gradient-to-b.from-\[#0d0d2b\].to-\[#0a0a1a\] {
+  background: linear-gradient(to bottom, #ffffff, #f8fafc) !important;
+}
+
+/* Light mode - Text colors */
+.light .text-white {
+  color: #1e293b !important;
+}
+
+.light .text-gray-300 {
+  color: #475569 !important;
+}
+
+.light .text-gray-400 {
+  color: #64748b !important;
+}
+
+.light .text-gray-500 {
+  color: #64748b !important;
+}
+
+/* Light mode - Backgrounds with opacity */
+.light .bg-white\/5,
+.light .bg-white\/\[0\.03\],
+.light .bg-white\/\[0\.02\] {
+  background-color: #ffffff !important;
+}
+
+.light .bg-white\/10 {
+  background-color: #ffffff !important;
+}
+
+.light .bg-slate-800\/80 {
+  background-color: #ffffff !important;
+}
+
+.light .bg-slate-700\/80 {
+  background-color: #f1f5f9 !important;
+}
+
+/* Light mode - Borders */
+.light .border-white\/5,
+.light .border-white\/10,
+.light .border-white\/\[0\.06\] {
+  border-color: #e2e8f0 !important;
+}
+
+.light .hover\:border-white\/\[0\.12\]:hover {
+  border-color: #cbd5e1 !important;
+}
+
+.light .border-white\/20 {
+  border-color: #cbd5e1 !important;
+}
+
+.light .hover\:border-white\/40:hover {
+  border-color: #94a3b8 !important;
+}
+
+/* Light mode - Shadows */
+.light .shadow-black\/20,
+.light .shadow-black\/5 {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .shadow-purple-500\/5,
+.light .hover\:shadow-purple-500\/5:hover {
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1) !important;
+}
+
+/* Light mode - Hover backgrounds */
+.light .hover\:bg-white\/5:hover,
+.light .hover\:bg-white\/10:hover {
+  background-color: #f1f5f9 !important;
+}
+
+/* Light mode - Navbar specific */
+.light nav .bg-white\/5,
+.light nav .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.light nav {
+  background-color: transparent !important;
+}
+
+/* Light mode - Cards and sections */
+.light .rounded-2xl.bg-white\/\[0\.03\],
+.light .rounded-2xl.bg-white\/\[0\.02\] {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode - Form inputs */
+.light input,
+.light textarea,
+.light select {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light select option {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+}
+
+/* Light mode - Decorative elements */
+.light .bg-purple-600\/5,
+.light .bg-purple-600\/10,
+.light .bg-purple-600\/20,
+.light .bg-purple-600\/30 {
+  opacity: 0.5;
+}
+
+.light .bg-cyan-500\/5,
+.light .bg-cyan-500\/10,
+.light .bg-cyan-500\/20,
+.light .bg-cyan-500\/30 {
+  opacity: 0.5;
+}
+
+.light .bg-indigo-600\/20 {
+  opacity: 0.4;
+}
+
+.light .bg-pink-500\/20 {
+  opacity: 0.4;
+}
+
+/* Light mode - Icon backgrounds */
+.light .bg-purple-500\/20 {
+  background-color: #ede9fe !important;
+}
+
+.light .bg-cyan-500\/20 {
+  background-color: #cffafe !important;
+}
+
+.light .bg-pink-500\/20 {
+  background-color: #fce7f3 !important;
+}
+
+.light .bg-amber-500\/20 {
+  background-color: #fef3c7 !important;
+}
+
+/* Light mode - Service icon backgrounds */
+.light .bg-purple-900\/50 {
+  background-color: #ede9fe !important;
+}
+
+.light .bg-cyan-900\/50 {
+  background-color: #cffafe !important;
+}
+
+.light .bg-pink-900\/50 {
+  background-color: #fce7f3 !important;
+}
+
+.light .bg-amber-900\/50 {
+  background-color: #fef3c7 !important;
+}
+
+.light .bg-green-900\/50 {
+  background-color: #d1fae5 !important;
+}
+
+.light .bg-indigo-900\/50 {
+  background-color: #e0e7ff !important;
+}
+
+.light .bg-yellow-900\/50 {
+  background-color: #fef3c7 !important;
+}
+
+/* Light mode - Grid pattern */
+.light .bg-\[linear-gradient\(rgba\(139\,92\,246\,0\.03\)_1px\,transparent_1px\)\,linear-gradient\(90deg\,rgba\(139\,92\,246\,0\.03\)_1px\,transparent_1px\)\] {
+  background-image: 
+    linear-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.08) 1px, transparent 1px) !important;
+}
+
+/* Light mode - Scrollbar */
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+/* Light mode - Mobile menu */
+.light .md\:hidden.mt-2 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Light mode - Badge backgrounds */
+.light .bg-purple-500\/10 {
+  background-color: #f3e8ff !important;
+}
+
+.light .bg-cyan-500\/10 {
+  background-color: #ecfeff !important;
+}
+
+.light .bg-pink-500\/10 {
+  background-color: #fce7f3 !important;
+}
+
+.light .bg-amber-500\/10 {
+  background-color: #fef3c7 !important;
+}
+
+.light .bg-emerald-500\/10 {
+  background-color: #d1fae5 !important;
+}
+
+/* Light mode - Badge borders */
+.light .border-purple-500\/20 {
+  border-color: #d8b4fe !important;
+}
+
+.light .border-cyan-500\/20 {
+  border-color: #a5f3fc !important;
+}
+
+.light .border-pink-500\/20 {
+  border-color: #f9a8d4 !important;
+}
+
+.light .border-amber-500\/20 {
+  border-color: #fcd34d !important;
+}
+
+.light .border-emerald-500\/20 {
+  border-color: #6ee7b7 !important;
+}
+
+/* Light mode - Process section mockups */
+.light .bg-slate-800\/80 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light .bg-white\/5 {
+  background-color: #f1f5f9 !important;
+}
+
+.light .bg-white\/10 {
+  background-color: #e2e8f0 !important;
+}
+
+.light .bg-white\/20 {
+  background-color: #cbd5e1 !important;
+}
+
+/* Light mode - Hover text */
+.light .group-hover\:text-purple-300:hover,
+.light .group:hover .group-hover\:text-purple-300 {
+  color: #7c3aed !important;
+}
+
+/* Light mode - Links hover */
+.light a:hover {
+  color: #7c3aed;
+}
+
+/* Light mode - Portfolio gradient overlays */
+.light .bg-black\/20 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Light mode - Success message */
+.light .bg-emerald-500\/10 {
+  background-color: #d1fae5 !important;
+}
+
+.light .border-emerald-500\/20 {
+  border-color: #6ee7b7 !important;
+}
+
+/* ========== ANIMATIONS ========== */
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
@@ -45,7 +363,6 @@
     animation-delay: 1000ms;
   }
 
-  /* Orb Animations */
   .animate-orb-1 {
     animation: orb1 20s ease-in-out infinite;
   }
@@ -104,181 +421,89 @@
   }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes orb1 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    25% {
-      transform: translate(100px, -50px) scale(1.1);
-    }
-    50% {
-      transform: translate(50px, 100px) scale(0.9);
-    }
-    75% {
-      transform: translate(-80px, 50px) scale(1.05);
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(100px, -50px) scale(1.1); }
+    50% { transform: translate(50px, 100px) scale(0.9); }
+    75% { transform: translate(-80px, 50px) scale(1.05); }
   }
 
   @keyframes orb2 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    25% {
-      transform: translate(-120px, 80px) scale(1.15);
-    }
-    50% {
-      transform: translate(-60px, -100px) scale(0.85);
-    }
-    75% {
-      transform: translate(100px, -60px) scale(1.1);
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-120px, 80px) scale(1.15); }
+    50% { transform: translate(-60px, -100px) scale(0.85); }
+    75% { transform: translate(100px, -60px) scale(1.1); }
   }
 
   @keyframes orb3 {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-    }
-    33% {
-      transform: translate(-40%, -60%) scale(1.2);
-    }
-    66% {
-      transform: translate(-60%, -40%) scale(0.8);
-    }
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    33% { transform: translate(-40%, -60%) scale(1.2); }
+    66% { transform: translate(-60%, -40%) scale(0.8); }
   }
 
   @keyframes orb4 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    50% {
-      transform: translate(-150px, 100px) scale(1.3);
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-150px, 100px) scale(1.3); }
   }
 
   @keyframes gridPulse {
-    0%, 100% {
-      opacity: 0.3;
-    }
-    50% {
-      opacity: 0.6;
-    }
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
   }
 
   @keyframes particle {
-    0%, 100% {
-      opacity: 0.3;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1.5);
-    }
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.5); }
   }
 
   @keyframes float1 {
-    0%, 100% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-      transform: translate(30px, -40px) rotate(10deg);
-    }
-    50% {
-      transform: translate(-20px, -80px) rotate(-5deg);
-    }
-    75% {
-      transform: translate(40px, -40px) rotate(15deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(30px, -40px) rotate(10deg); }
+    50% { transform: translate(-20px, -80px) rotate(-5deg); }
+    75% { transform: translate(40px, -40px) rotate(15deg); }
   }
 
   @keyframes float2 {
-    0%, 100% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    33% {
-      transform: translate(-50px, 30px) rotate(-15deg);
-    }
-    66% {
-      transform: translate(30px, 60px) rotate(10deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-50px, 30px) rotate(-15deg); }
+    66% { transform: translate(30px, 60px) rotate(10deg); }
   }
 
   @keyframes float3 {
-    0%, 100% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    50% {
-      transform: translate(60px, -50px) rotate(20deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(60px, -50px) rotate(20deg); }
   }
 
   @keyframes float4 {
-    0%, 100% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-      transform: translate(-40px, -30px) rotate(-10deg);
-    }
-    50% {
-      transform: translate(-80px, 20px) rotate(5deg);
-    }
-    75% {
-      transform: translate(-40px, 50px) rotate(-15deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-40px, -30px) rotate(-10deg); }
+    50% { transform: translate(-80px, 20px) rotate(5deg); }
+    75% { transform: translate(-40px, 50px) rotate(-15deg); }
   }
 
   @keyframes glow1 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translate(100px, -80px) scale(1.5);
-      opacity: 0.5;
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+    50% { transform: translate(100px, -80px) scale(1.5); opacity: 0.5; }
   }
 
   @keyframes glow2 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translate(-80px, 60px) scale(1.3);
-      opacity: 0.5;
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+    50% { transform: translate(-80px, 60px) scale(1.3); opacity: 0.5; }
   }
 
   @keyframes glow3 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translate(60px, 80px) scale(1.4);
-      opacity: 0.5;
-    }
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+    50% { transform: translate(60px, 80px) scale(1.4); opacity: 0.5; }
   }
 
   @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 }
 
@@ -287,13 +512,8 @@
   width: 8px;
 }
 
-.dark ::-webkit-scrollbar-track,
-:root:not(.light) ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #0a0a1a;
-}
-
-.light ::-webkit-scrollbar-track {
-  background: #f3f4f6;
 }
 
 ::-webkit-scrollbar-thumb {
