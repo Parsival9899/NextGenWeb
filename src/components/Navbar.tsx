@@ -9,6 +9,7 @@ interface NavbarProps {
 export default function Navbar({ scrollY }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const isLight = theme === 'light';
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -20,16 +21,15 @@ export default function Navbar({ scrollY }: NavbarProps) {
   ];
 
   return (
-    <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl`}>
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl">
       <div
         className={`
-          relative rounded-full
-          bg-white/5 backdrop-blur-xl
-          border border-white/10
-          shadow-lg shadow-black/20
-          px-6 py-3
-          transition-all duration-300
-          ${scrollY > 50 ? 'bg-white/10 shadow-xl' : ''}
+          relative rounded-full backdrop-blur-xl px-6 py-3 transition-all duration-300
+          ${isLight
+            ? 'bg-white/85 border border-gray-200 shadow-lg shadow-gray-200/50'
+            : 'bg-white/5 border border-white/10 shadow-lg shadow-black/20'
+          }
+          ${scrollY > 50 ? (isLight ? 'bg-white/95 shadow-xl shadow-gray-200/50' : 'bg-white/10 shadow-xl') : ''}
         `}
       >
         <div className="flex items-center justify-between">
@@ -47,7 +47,9 @@ export default function Navbar({ scrollY }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-white transition-colors relative group text-sm font-medium"
+                className={`transition-colors relative group text-sm font-medium ${
+                  isLight ? 'text-gray-600 hover:text-purple-600' : 'text-gray-300 hover:text-white'
+                }`}
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-400 group-hover:w-full transition-all duration-300" />
@@ -58,7 +60,9 @@ export default function Navbar({ scrollY }: NavbarProps) {
           <div className="flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+              className={`p-2 rounded-full transition-all ${
+                isLight ? 'bg-gray-100 border border-gray-200 hover:bg-gray-200' : 'bg-white/5 border border-white/10 hover:bg-white/10'
+              }`}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -77,7 +81,7 @@ export default function Navbar({ scrollY }: NavbarProps) {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-white p-2"
+              className={`md:hidden p-2 ${isLight ? 'text-gray-900' : 'text-white'}`}
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -86,14 +90,18 @@ export default function Navbar({ scrollY }: NavbarProps) {
       </div>
 
       {isOpen && (
-        <div className="md:hidden mt-2 mx-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl overflow-hidden">
+        <div className={`md:hidden mt-2 mx-4 rounded-2xl backdrop-blur-xl border shadow-xl overflow-hidden ${
+          isLight ? 'bg-white/98 border-gray-200' : 'bg-slate-900/95 border-white/10'
+        }`}>
           <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 transition-all text-sm font-medium"
+                className={`block px-4 py-2.5 rounded-xl transition-all text-sm font-medium ${
+                  isLight ? 'text-gray-600 hover:text-purple-600 hover:bg-purple-50' : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
               >
                 {link.name}
               </a>

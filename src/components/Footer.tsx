@@ -1,6 +1,9 @@
 import { Code2, Heart } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -28,9 +31,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-white/5">
-      <div className="absolute inset-0 bg-[#050510]" />
-
+    <footer className={`relative border-t ${isLight ? 'border-gray-200 bg-gray-100' : 'border-white/5 bg-slate-950'}`}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
@@ -42,7 +43,7 @@ export default function Footer() {
                 NexGen Solutions
               </span>
             </a>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm">
+            <p className={`text-sm leading-relaxed mb-6 max-w-sm ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
               Your trusted technology partner for web development, mobile apps, enterprise solutions, 
               and B2B service partnerships. We turn ideas into digital reality.
             </p>
@@ -51,7 +52,9 @@ export default function Footer() {
                 <a
                   key={social}
                   href="#"
-                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                  className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${
+                    isLight ? 'bg-white border border-gray-200 text-gray-600 hover:text-purple-600 hover:border-purple-300' : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
+                  }`}
                 >
                   <i className={`fab fa-${social} text-sm`} />
                 </a>
@@ -60,11 +63,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm">Services</h3>
+            <h3 className={`font-semibold mb-4 text-sm ${isLight ? 'text-gray-900' : 'text-white'}`}>Services</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <a href={link.href} className={`text-sm transition-colors ${isLight ? 'text-gray-600 hover:text-purple-600' : 'text-gray-400 hover:text-white'}`}>
                     {link.name}
                   </a>
                 </li>
@@ -73,11 +76,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm">Company</h3>
+            <h3 className={`font-semibold mb-4 text-sm ${isLight ? 'text-gray-900' : 'text-white'}`}>Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <a href={link.href} className={`text-sm transition-colors ${isLight ? 'text-gray-600 hover:text-purple-600' : 'text-gray-400 hover:text-white'}`}>
                     {link.name}
                   </a>
                 </li>
@@ -86,11 +89,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm">Resources</h3>
+            <h3 className={`font-semibold mb-4 text-sm ${isLight ? 'text-gray-900' : 'text-white'}`}>Resources</h3>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <a href={link.href} className={`text-sm transition-colors ${isLight ? 'text-gray-600 hover:text-purple-600' : 'text-gray-400 hover:text-white'}`}>
                     {link.name}
                   </a>
                 </li>
@@ -99,11 +102,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">
+        <div className={`py-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4 ${isLight ? 'border-gray-200' : 'border-white/5'}`}>
+          <p className={`text-sm ${isLight ? 'text-gray-500' : 'text-gray-500'}`}>
             © {currentYear} NexGen Solutions. All rights reserved.
           </p>
-          <p className="text-gray-500 text-sm flex items-center gap-1">
+          <p className={`text-sm flex items-center gap-1 ${isLight ? 'text-gray-500' : 'text-gray-500'}`}>
             Made with <Heart className="w-3.5 h-3.5 text-red-400 fill-red-400" /> by NexGen Team
           </p>
         </div>

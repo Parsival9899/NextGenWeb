@@ -1,4 +1,5 @@
 import { Globe, Smartphone, Server, Palette, Shield, Zap, Building2, Users } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const services = [
   {
@@ -52,19 +53,22 @@ const services = [
 ];
 
 export default function Services() {
-  return (
-    <section id="services" className="relative py-24 sm:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a1a] via-[#0d0d2b] to-[#0a0a1a]" />
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
 
+  return (
+    <section id="services" className={`relative py-24 sm:py-32 ${isLight ? 'bg-gray-50' : 'bg-slate-900'}`}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-4">
+          <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 ${
+            isLight ? 'bg-purple-100 text-purple-700' : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
+          }`}>
             What We Offer
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isLight ? 'text-gray-900' : 'text-white'}`}>
             Our <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className={`max-w-2xl mx-auto text-lg ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
             We provide comprehensive technology solutions for businesses of all sizes — 
             from direct client projects to B2B service partnerships.
           </p>
@@ -74,13 +78,17 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group relative p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/5"
+              className={`group relative p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${
+                isLight 
+                  ? 'bg-white border border-gray-200 hover:border-purple-300 hover:shadow-lg hover:shadow-purple-100' 
+                  : 'bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] hover:shadow-xl hover:shadow-purple-500/5'
+              }`}
             >
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                 <service.icon className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{service.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{service.description}</p>
+              <h3 className={`text-lg font-semibold mb-2 ${isLight ? 'text-gray-900' : 'text-white'}`}>{service.title}</h3>
+              <p className={`text-sm leading-relaxed ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>{service.description}</p>
             </div>
           ))}
         </div>

@@ -1,4 +1,5 @@
 import { MessageSquare, Lightbulb, Code2, Rocket, CheckCircle, ArrowRight } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const steps = [
   {
@@ -43,13 +44,13 @@ const steps = [
   },
 ];
 
-function StepVisual({ stepIndex, color }: { stepIndex: number; color: string }) {
+function StepVisual({ stepIndex, color, isLight }: { stepIndex: number; color: string; isLight: boolean }) {
   switch (stepIndex) {
     case 0:
       return (
-        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border border-white/10`}>
+        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border ${isLight ? 'border-gray-200' : 'border-white/10'}`}>
           <div className="aspect-[4/3] flex items-center justify-center relative">
-            <div className="w-48 h-56 bg-slate-800/80 rounded-2xl border border-white/10 p-4 shadow-2xl relative">
+            <div className={`w-48 h-56 rounded-2xl border p-4 shadow-2xl relative ${isLight ? 'bg-white border-gray-200' : 'bg-slate-800/80 border-white/10'}`}>
               <div className="w-16 h-3 bg-white/20 rounded-full mb-4 mx-auto" />
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
@@ -79,10 +80,10 @@ function StepVisual({ stepIndex, color }: { stepIndex: number; color: string }) 
       );
     case 1:
       return (
-        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border border-white/10`}>
+        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border ${isLight ? 'border-gray-200' : 'border-white/10'}`}>
           <div className="aspect-[4/3] flex items-center justify-center relative">
-            <div className="w-56 h-44 bg-slate-800/80 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
-              <div className="h-6 bg-slate-700/80 flex items-center gap-1.5 px-3">
+            <div className={`w-56 h-44 rounded-xl border overflow-hidden shadow-2xl ${isLight ? 'bg-white border-gray-200' : 'bg-slate-800/80 border-white/10'}`}>
+              <div className={`h-6 flex items-center gap-1.5 px-3 ${isLight ? 'bg-gray-100' : 'bg-slate-700/80'}`}>
                 <div className="w-2 h-2 rounded-full bg-red-400/60" />
                 <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
                 <div className="w-2 h-2 rounded-full bg-green-400/60" />
@@ -105,10 +106,10 @@ function StepVisual({ stepIndex, color }: { stepIndex: number; color: string }) 
       );
     case 2:
       return (
-        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border border-white/10`}>
+        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border ${isLight ? 'border-gray-200' : 'border-white/10'}`}>
           <div className="aspect-[4/3] flex items-center justify-center relative">
-            <div className="w-56 h-44 bg-slate-800/80 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
-              <div className="h-6 bg-slate-700/80 flex items-center gap-2 px-3">
+            <div className={`w-56 h-44 rounded-xl border overflow-hidden shadow-2xl ${isLight ? 'bg-white border-gray-200' : 'bg-slate-800/80 border-white/10'}`}>
+              <div className={`h-6 flex items-center gap-2 px-3 ${isLight ? 'bg-gray-100' : 'bg-slate-700/80'}`}>
                 <div className="flex gap-1">
                   <div className="w-2 h-2 rounded-full bg-red-400/60" />
                   <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
@@ -134,10 +135,10 @@ function StepVisual({ stepIndex, color }: { stepIndex: number; color: string }) 
       );
     case 3:
       return (
-        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border border-white/10`}>
+        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border ${isLight ? 'border-gray-200' : 'border-white/10'}`}>
           <div className="aspect-[4/3] flex items-center justify-center relative">
-            <div className="w-56 h-44 bg-slate-800/80 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
-              <div className="h-6 bg-slate-700/80 flex items-center px-3">
+            <div className={`w-56 h-44 rounded-xl border overflow-hidden shadow-2xl ${isLight ? 'bg-white border-gray-200' : 'bg-slate-800/80 border-white/10'}`}>
+              <div className={`h-6 flex items-center px-3 ${isLight ? 'bg-gray-100' : 'bg-slate-700/80'}`}>
                 <div className="flex gap-1">
                   <div className="w-2 h-2 rounded-full bg-red-400/60" />
                   <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
@@ -164,10 +165,10 @@ function StepVisual({ stepIndex, color }: { stepIndex: number; color: string }) 
       );
     case 4:
       return (
-        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border border-white/10`}>
+        <div className={`relative w-full max-w-sm p-6 rounded-3xl bg-gradient-to-br ${color} bg-opacity-5 border ${isLight ? 'border-gray-200' : 'border-white/10'}`}>
           <div className="aspect-[4/3] flex items-center justify-center relative">
-            <div className="w-56 h-44 bg-slate-800/80 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
-              <div className="h-6 bg-slate-700/80 flex items-center px-3">
+            <div className={`w-56 h-44 rounded-xl border overflow-hidden shadow-2xl ${isLight ? 'bg-white border-gray-200' : 'bg-slate-800/80 border-white/10'}`}>
+              <div className={`h-6 flex items-center px-3 ${isLight ? 'bg-gray-100' : 'bg-slate-700/80'}`}>
                 <div className="flex gap-1">
                   <div className="w-2 h-2 rounded-full bg-red-400/60" />
                   <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
@@ -201,22 +202,24 @@ function StepVisual({ stepIndex, color }: { stepIndex: number; color: string }) 
 }
 
 export default function Process() {
-  return (
-    <section id="process" className="relative py-24 sm:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d2b] via-[#0a0a1a] to-[#0d0d2b]" />
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
 
-      <div className="absolute top-1/4 -left-32 w-64 h-64 bg-purple-600/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl" />
+  return (
+    <section id="process" className={`relative py-24 sm:py-32 overflow-hidden ${isLight ? 'bg-white' : 'bg-slate-900'}`}>
+
+      <div className={`absolute top-1/4 -left-32 w-64 h-64 rounded-full blur-3xl ${isLight ? 'bg-purple-200/30' : 'bg-purple-600/5'}`} />
+      <div className={`absolute bottom-1/4 -right-32 w-64 h-64 rounded-full blur-3xl ${isLight ? 'bg-cyan-200/30' : 'bg-cyan-500/5'}`} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-sm font-medium mb-4">
+          <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 ${isLight ? 'bg-pink-100 text-pink-700' : 'bg-pink-500/10 border border-pink-500/20 text-pink-400'}`}>
             How We Work
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isLight ? 'text-gray-900' : 'text-white'}`}>
             Our <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Process</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className={`max-w-2xl mx-auto text-lg ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
             A proven methodology that ensures every project is delivered on time, within budget, and exceeds expectations.
           </p>
         </div>
@@ -254,15 +257,15 @@ export default function Process() {
                       </div>
                       <div className="flex-1 pb-8">
                         <div className="mb-2">
-                          <span className="text-xs font-bold text-gray-500 uppercase">Step {step.step}</span>
+                          <span className={`text-xs font-bold uppercase ${isLight ? 'text-gray-500' : 'text-gray-500'}`}>Step {step.step}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">{step.description}</p>
+                        <h3 className={`text-xl font-bold mb-2 ${isLight ? 'text-gray-900' : 'text-white'}`}>{step.title}</h3>
+                        <p className={`text-sm leading-relaxed mb-4 ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>{step.description}</p>
                         <div className="flex flex-wrap gap-2">
                           {step.highlights.map((highlight) => (
                             <span
                               key={highlight}
-                              className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs"
+                              className={`px-3 py-1 rounded-full text-xs ${isLight ? 'bg-gray-100 border border-gray-200 text-gray-600' : 'bg-white/5 border border-white/10 text-gray-300'}`}
                             >
                               {highlight}
                             </span>
@@ -274,17 +277,17 @@ export default function Process() {
                     <div className="hidden lg:flex h-full items-center">
                       <div className="w-full group">
                         <div className="mb-3">
-                          <span className={`text-xs font-bold text-gray-500 uppercase ${isEven ? 'float-right' : ''}`}>Step {step.step}</span>
+                          <span className={`text-xs font-bold uppercase ${isEven ? 'float-right' : ''} ${isLight ? 'text-gray-500' : 'text-gray-500'}`}>Step {step.step}</span>
                         </div>
-                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                        <h3 className={`text-2xl font-bold mb-3 transition-colors ${isLight ? 'text-gray-900 group-hover:text-purple-600' : 'text-white group-hover:text-purple-300'}`}>
                           {step.title}
                         </h3>
-                        <p className="text-gray-400 leading-relaxed mb-5">{step.description}</p>
+                        <p className={`leading-relaxed mb-5 ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>{step.description}</p>
                         <div className={`flex flex-wrap gap-2 ${isEven ? 'justify-end' : 'justify-start'}`}>
                           {step.highlights.map((highlight) => (
                             <span
                               key={highlight}
-                              className="px-3 py-1.5 rounded-full bg-white/5 text-gray-300 text-xs font-medium"
+                              className={`px-3 py-1.5 rounded-full text-xs font-medium ${isLight ? 'bg-gray-100 text-gray-600' : 'bg-white/5 text-gray-300'}`}
                             >
                               {highlight}
                             </span>
@@ -296,7 +299,7 @@ export default function Process() {
 
                   <div className={`hidden lg:flex items-center justify-center lg:py-4 ${isEven ? 'lg:col-start-2' : 'lg:col-start-1 lg:row-start-1'}`}>
                     <div className="w-full flex justify-center">
-                      <StepVisual stepIndex={index} color={step.color} />
+                      <StepVisual stepIndex={index} color={step.color} isLight={isLight} />
                     </div>
                   </div>
                 </div>
@@ -306,8 +309,8 @@ export default function Process() {
         </div>
 
         <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-white/10">
-            <span className="text-gray-300 text-sm">Ready to start your journey?</span>
+          <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full ${isLight ? 'bg-gradient-to-r from-purple-100 to-cyan-100 border border-gray-200' : 'bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-white/10'}`}>
+            <span className={`text-sm ${isLight ? 'text-gray-600' : 'text-gray-300'}`}>Ready to start your journey?</span>
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 text-sm font-semibold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
