@@ -55,6 +55,19 @@ export default function Navbar({ scrollY }: NavbarProps) {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-400 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
+            <a
+              href="/pricing.html"
+              target="_blank"
+              className={`transition-colors relative group text-sm font-medium flex items-center gap-1 ${
+                isLight ? 'text-gray-600 hover:text-purple-600' : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              Pricing
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-400 group-hover:w-full transition-all duration-300" />
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -106,6 +119,19 @@ export default function Navbar({ scrollY }: NavbarProps) {
                 {link.name}
               </a>
             ))}
+            <a
+              href="/pricing.html"
+              target="_blank"
+              onClick={() => setIsOpen(false)}
+              className={`block px-4 py-2.5 rounded-xl transition-all text-sm font-medium flex items-center justify-between ${
+                isLight ? 'text-gray-600 hover:text-purple-600 hover:bg-purple-50' : 'text-gray-300 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <span>Pricing</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
