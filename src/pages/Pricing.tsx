@@ -256,28 +256,28 @@ const pricingPlans = [
 
 const faqs = [
   {
-    question: 'Kya pricing mein GST include hai?',
-    answer: 'Nahi, saari prices GST exclusive hain. GST alag se applicable hoga.',
+    question: 'Is GST included in the pricing?',
+    answer: 'No, all prices are exclusive of GST. GST will be applicable separately as per government regulations.',
   },
   {
-    question: 'Payment terms kya hain?',
-    answer: 'Hum 50% advance aur 50% completion pe lete hain. Large projects ke liye milestone-based payment bhi available hai.',
+    question: 'What are the payment terms?',
+    answer: 'We follow a 50% advance payment and 50% on completion structure. For larger projects, milestone-based payment options are also available.',
   },
   {
-    question: 'Kya aap EMI option dete hain?',
-    answer: 'Haan, ₹5,00,000 se upar ke projects ke liye EMI options available hain.',
+    question: 'Do you offer EMI options?',
+    answer: 'Yes, EMI options are available for projects valued at ₹5,00,000 and above.',
   },
   {
-    question: 'Support period khatam hone ke baad kya?',
-    answer: 'Free support period ke baad, aap AMC (Annual Maintenance Contract) le sakte hain jo ₹50,000/year se start hota hai.',
+    question: 'What happens after the free support period ends?',
+    answer: 'After the free support period, you can opt for an AMC (Annual Maintenance Contract) starting from ₹50,000 per year.',
   },
   {
-    question: 'Kya pricing fixed hai?',
-    answer: 'Prices starting point hain. Final quote project requirements ke basis pe diya jayega. Custom requirements ke liye contact karein.',
+    question: 'Is the pricing fixed?',
+    answer: 'The prices listed are starting points. A final quote will be provided based on your specific project requirements. Please contact us for custom requirements.',
   },
   {
-    question: 'B2B partnerships ke liye pricing?',
-    answer: 'B2B partnerships ke liye custom pricing hoti hai jo volume aur long-term commitment pe depend karti hai. Please contact us for detailed discussion.',
+    question: 'What is the pricing for B2B partnerships?',
+    answer: 'B2B partnerships have custom pricing that depends on volume and long-term commitment. Please contact us for a detailed discussion.',
   },
 ];
 
@@ -471,8 +471,8 @@ export default function Pricing() {
             Need Custom Solution?
           </h3>
           <p className={`text-lg mb-8 max-w-2xl mx-auto ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
-            B2B partnerships, project outsourcing, ya enterprise solutions ke liye custom pricing available hai. 
-            Hum aapki specific requirements ke basis pe tailored quote denge.
+            Custom pricing is available for B2B partnerships, project outsourcing, and enterprise solutions. 
+            We will provide a tailored quote based on your specific requirements.
           </p>
           <a
             href="/#contact"
