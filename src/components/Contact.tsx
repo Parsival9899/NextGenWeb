@@ -8,7 +8,7 @@ import { useTheme } from '../context/ThemeContext';
 // 2. Enter your email & get your Access Key
 // 3. Replace 'YOUR_ACCESS_KEY_HERE' with your key
 // ============================================
-const WEB3FORMS_ACCESS_KEY = 'd9a4649e-0c5a-41a9-954f-cdf7ee60d664';
+const WEB3FORMS_ACCESS_KEY = '661b0859-0fb0-415f-b43a-d39896d3e526';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
