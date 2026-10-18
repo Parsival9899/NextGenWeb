@@ -1,0 +1,147 @@
+import { useState } from 'react';
+import { Menu, X, Code2, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+
+interface NavbarProps {
+  scrollY: number;
+}
+
+export default function Navbar({ scrollY }: NavbarProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const isLight = theme === 'light';
+
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'Services', href: '#services' },
+    { name: 'About', href: '#about' },
+    { name: 'Process', href: '#process' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  return (
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-6xl">
+      <div
+        className={`
+          relative rounded-full backdrop-blur-xl px-6 py-3 transition-all duration-300
+          ${isLight
+            ? 'bg-white/85 border border-gray-200 shadow-lg shadow-gray-200/50'
+            : 'bg-white/5 border border-white/10 shadow-lg shadow-black/20'
+          }
+          ${scrollY > 50 ? (isLight ? 'bg-white/95 shadow-xl shadow-gray-200/50' : 'bg-white/10 shadow-xl') : ''}
+        `}
+      >
+        <div className="flex items-center justify-between">
+          <a href="#home" className="flex items-center gap-2 group flex-shrink-0">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Code2 className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-lg font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent hidden sm:block">
+              NexGen
+            </span>
+          </a>
+
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`transition-colors relative group text-sm font-medium ${
+                  isLight ? 'text-gray-600 hover:text-purple-600' : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-400 group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
+            <a
+              href="/pricing.html"
+              target="_blank"
+              className={`transition-colors relative group text-sm font-medium flex items-center gap-1 ${
+                isLight ? 'text-gray-600 hover:text-purple-600' : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              Pricing
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-400 group-hover:w-full transition-all duration-300" />
+            </a>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full transition-all ${
+                isLight ? 'bg-gray-100 border border-gray-200 hover:bg-gray-200' : 'bg-white/5 border border-white/10 hover:bg-white/10'
+              }`}
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-yellow-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-purple-600" />
+              )}
+            </button>
+
+            <a
+              href="#contact"
+              className="hidden sm:block px-5 py-2 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-sm font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:scale-105"
+            >
+              Get Started
+            </a>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`md:hidden p-2 ${isLight ? 'text-gray-900' : 'text-white'}`}
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {isOpen && (
+        <div className={`md:hidden mt-2 mx-4 rounded-2xl backdrop-blur-xl border shadow-xl overflow-hidden ${
+          isLight ? 'bg-white/98 border-gray-200' : 'bg-slate-900/95 border-white/10'
+        }`}>
+          <div className="px-4 py-4 space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`block px-4 py-2.5 rounded-xl transition-all text-sm font-medium ${
+                  isLight ? 'text-gray-600 hover:text-purple-600 hover:bg-purple-50' : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+            <a
+              href="/pricing.html"
+              target="_blank"
+              onClick={() => setIsOpen(false)}
+              className={`block px-4 py-2.5 rounded-xl transition-all text-sm font-medium flex items-center justify-between ${
+                isLight ? 'text-gray-600 hover:text-purple-600 hover:bg-purple-50' : 'text-gray-300 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <span>Pricing</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold mt-3 text-sm"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
